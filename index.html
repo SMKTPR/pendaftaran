@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pendaftaran Karnival Sinergi</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f7fb;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 700px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+    }
+
+    h2 {
+        margin-top: 25px;
+        color: #34495e;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 5px;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .section {
+        margin-bottom: 20px;
+    }
+
+    .participant {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px dashed #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .add-btn {
+        background-color: #27ae60;
+        color: white;
+    }
+
+    .submit-btn {
+        background-color: #2980b9;
+        color: white;
+        width: 100%;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>PENDAFTARAN PERTANDINGAN KARNIVAL SINERGI</h1>
+
+    <!-- SECTION 1 -->
+    <div class="section">
+        <h2>NAMA SEKOLAH</h2>
+
+        <label>KOD SEKOLAH</label>
+        <input type="text" name="kod_sekolah">
+
+        <label>NAMA SEKOLAH</label>
+        <input type="text" name="nama_sekolah">
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="section">
+        <h2>GURU PENGIRING</h2>
+
+        <label>NAMA GURU</label>
+        <input type="text" name="nama_guru">
+
+        <label>NO KAD PENGENALAN</label>
+        <input type="text" name="ic_guru">
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="section">
+        <h2>NAMA PESERTA / MURID</h2>
+
+        <div id="participants">
+            <div class="participant">
+                <label>NAMA MURID</label>
+                <input type="text" name="nama_murid[]">
+
+                <label>NO KAD PENGENALAN</label>
+                <input type="text" name="ic_murid[]">
+            </div>
+        </div>
+
+        <button type="button" class="add-btn" onclick="addParticipant()">+ Tambah Peserta</button>
+    </div>
+
+    <button class="submit-btn">HANTAR</button>
+</div>
+
+<script>
+function addParticipant() {
+    const container = document.getElementById("participants");
+
+    const div = document.createElement("div");
+    div.classList.add("participant");
+
+    div.innerHTML = `
+        <label>NAMA MURID</label>
+        <input type="text" name="nama_murid[]">
+
+        <label>NO KAD PENGENALAN</label>
+        <input type="text" name="ic_murid[]">
+    `;
+
+    container.appendChild(div);
+}
+</script>
+
+</body>
+</html>
